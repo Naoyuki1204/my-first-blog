@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static 'score/style.css' %}" />
+</head>
+<body>
+    <h1>分析結果</h1>
+  <p>{{data1}}</p>
+  <h3>関東秋季リーグ戦　山田：鈴木【4 - 1】佐藤：前田</h3>
+<br>
+<br>
+<br>
+  <center>
+  <iframe width="700" height="400" src="https://www.youtube.com/embed/IPfPjZyKzK4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </center>
+
+<script type="text/javascript" src='{% static 'score/Chart.js' %}'></script>
+ 
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ["IN", "NET", "BACKOUT", "RSIDEOUT", "LSIDEOUT", "TIP"],
+        datasets: [{
+            label: '# of Votes',
+            data:[{{IN}},{{N}},{{B}},{{RS}},{{LS}},{{T}}],
+            backgroundColor: [
+                'rgba(0, 0, 255,0.5)',
+                'rgba(0, 255, 0,0.5)',
+                'rgba(255, 0, 0,0.5)',
+                'rgba(255, 70, 0,0.5)',
+                'rgba(255, 98, 226,0.5)',
+                'rgba(192, 192, 192,0.5)'
+            ],
+            borderColor: [
+                'rgba(0, 0, 255,1)',
+                'rgba(0, 255, 0, 1)',
+                'rgba(255, 0, 0, 1)',
+                'rgba(255, 70, 0, 1)',
+                'rgba(255, 98, 226, 1)',
+                'rgba(192, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        },
+        layout: {
+                padding: {                          
+                    left: 200,
+                    right: 200,
+                    top: 200,
+                    bottom: 400
+                }
+            },
+            title: {                         //タイトル設定
+                display: true,                 //表示設定
+                fontSize: 50,                  //フォントサイズ
+                text: 'ポイント＆ミス セグメント別分析'
+                }
+        
+   }
+});
+</script>
+<center>
+
+<h2>パターンの可視化</h2>
+<br>
+ <img src="{% static 'score/tenniscourt.jpg' %}">
+</center>
+
+</body>
+</html>
+

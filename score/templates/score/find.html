@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static 'score/style.css' %}" />
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <p>{{message|safe}}</p>
+    <table>
+        <form action="{% url 'find' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <tr><th>検索</th><td><input type="submit" value="click"></td></tr>
+        </form>
+    </table>
+    <hr>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>試合名</th>
+            <th>スコア</th>
+            <th>後衛</th>
+            <th>前衛</th>
+            <th>結果</th>
+        </tr>
+    {% for item in data %}
+        <tr>
+           <td>{{item.id}}</td>
+            <td>{{item.gamename}}</td>
+            <td>{{item.score}}</td>
+            <td>{{item.keio1}}</td>
+            <td>{{item.keio2}}</td>
+            <td><a href="{% url 'analys' item.id %}">analys</a></td>
+        <tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

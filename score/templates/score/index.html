@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" 
+      href="{% static 'score/style.css' %}" />
+       <!-- a:link { color: #000000; }
+        a:visited { color: #000000; }
+        a:hover { color: #008000; }
+        a:active { color: #006400; }-->
+
+</style>
+</head>
+
+<header>
+ <p><a href="{% url goto %}">SofttennisDataBase</a></p>
+ <nav>
+  <ul>
+   <li><a href="http://www.keio-stc.com">KEIO STC</a></li>
+  </ul>
+ </nav>
+</header>
+
+<body style="margin-top: 0;margin-left: 0;margin-right: 0;margin-bottom: 0;">
+
+<div class="resizeimage">
+   <img src="{% static 'score/bg-enzin3.png' %}" style="width:100%;height:auto;"">
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<section>
+<p>
+<a href="{% url goto1 %}">
+<input type="image" src="{% static 'score/plus_mini.png' %}" 
+ onmouseover="this.src='{% static 'score/plus.png' %}'"
+  onmouseout="this.src='{% static 'score/plus_mini.png' %}'" hspace="290" alt="データの追加" 
+ style="width:8%;height:auto;max-width:80px;min-width:80px;"></a>
+
+<a href="{% url goto2 %}">
+<input type="image" src="{% static 'score/data_mini.png' %}" 
+ onmouseover="this.src='{% static 'score/data.png' %}'"
+  onmouseout="this.src='{% static 'score/data_mini.png' %}'" hspace="0" alt="分析"
+ style="width:8%;height:auto;max-width:80px;min-width:80px;"></a>
+
+<a href="{% url goto3 %}"> 
+<input type="image" src="{% static 'score/people_mini.png' %}" 
+ onmouseover="this.src='{% static 'score/people.png' %}'"
+  onmouseout="this.src='{% static 'score/people_mini.png' %}'" hspace="290" alt="コンディショニング"
+ style="width:8%;height:auto;max-width:80px;min-width:80px;"></a>
+</p>
+</section>
+
+</div>
+<h3>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;データの追加&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;分析・解析&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;コンディショニング</h3>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;データベースに試合内容を追加します。&emsp;&emsp;&emsp;&emsp;分析・解析を行います。&emsp;&emsp;&emsp;コンディショニングをみることができます。</p>
+            </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
+</html>
